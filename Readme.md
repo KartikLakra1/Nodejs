@@ -99,3 +99,37 @@ used in online banking, e-commerce.
 Ensures reliable, ordered, error-checked data query over the internet.
 
 established a connection before data is tranferred.
+
+## NODE CORE MODULES
+
+#### 1. fs(file system):
+
+handles file operations like reading and writing files.
+
+#### 2. http:
+
+creates a http servers and makes http requests.
+
+#### 3. https:
+
+lauch a ssl server.
+
+#### 4. path
+
+provides utilities for handling and transforming file.
+
+#### 5. path.os
+
+provides operating system-related utility methods and properites.
+
+#### 6. events:
+
+handles events and event-driven programming
+
+#### 7. crypto
+
+provides cryptographic gunctionalities like hashing and encryption.
+
+#### 8. url:
+
+parses and formats url strings.
