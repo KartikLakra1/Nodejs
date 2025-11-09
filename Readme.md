@@ -37,3 +37,41 @@ Handles queries for specific top-level domains (e.g. .com,.net) and directs them
 #### Authoritative DNS:
 
 Contains the actual IP address of the domaina nd answers DNS queries with this information (e.g. Cloudflare, Google DNS).
+
+## HOW WEB WORKS?
+
+### 1. Client Request Initiation:
+
+The client (browser) initiated a network call by entering URL.
+
+### 2. DNS resolution:
+
+The browser contacts a DNS server to get the IP address of the domain.
+
+### 3. TCP Connection:
+
+The browser established a TCP connection with the server's IP address.
+
+### 4.HTTP Request:
+
+The browser sends a HTTP request to the server.
+
+### 5.Server Processing:
+
+The server processes the request and prepares a response.
+
+### 6.HTTP Response:
+
+The server sends a HTTP response back to the client.
+
+### 7.Network Transmission:
+
+The response travels back to the client over the network.
+
+### 8.Client Receives Response:
+
+The browser receives and interprests the response.
+
+### 9.Rendering:
+
+The browser renders the content of the response and displays it to the user.
