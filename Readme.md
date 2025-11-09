@@ -40,38 +40,62 @@ Contains the actual IP address of the domaina nd answers DNS queries with this i
 
 ## HOW WEB WORKS?
 
-### 1. Client Request Initiation:
+#### 1. Client Request Initiation:
 
 The client (browser) initiated a network call by entering URL.
 
-### 2. DNS resolution:
+#### 2. DNS resolution:
 
 The browser contacts a DNS server to get the IP address of the domain.
 
-### 3. TCP Connection:
+#### 3. TCP Connection:
 
 The browser established a TCP connection with the server's IP address.
 
-### 4.HTTP Request:
+#### 4.HTTP Request:
 
 The browser sends a HTTP request to the server.
 
-### 5.Server Processing:
+#### 5.Server Processing:
 
 The server processes the request and prepares a response.
 
-### 6.HTTP Response:
+#### 6.HTTP Response:
 
 The server sends a HTTP response back to the client.
 
-### 7.Network Transmission:
+#### 7.Network Transmission:
 
 The response travels back to the client over the network.
 
-### 8.Client Receives Response:
+#### 8.Client Receives Response:
 
 The browser receives and interprests the response.
 
-### 9.Rendering:
+#### 9.Rendering:
 
 The browser renders the content of the response and displays it to the user.
+
+## What are Protocols?
+
+#### HTTP(HyperText Transfer Protocol)
+
+facilitates communication between a web browser and a server to transfer web pages.
+
+Sends data in plain text (no encryption).
+
+Used for basic website browsing without security.
+
+#### HTTPS (HyperText transfer Protocol secure):
+
+Secure version of http, encrypts data for secure communication.
+
+uses SSL/TLS to encrypt data.
+
+used in online banking, e-commerce.
+
+#### TCP (Transmission control protocol)
+
+Ensures reliable, ordered, error-checked data query over the internet.
+
+established a connection before data is tranferred.
