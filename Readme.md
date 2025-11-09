@@ -10,7 +10,9 @@ working with integrated terminal, streamlines interactive shell.
 
 #### 1.Domain Name Entry: User Types a domain( e.g. www.example.com) into brower.
 
-#### 2.DNS Query: The browser sends a DNS query to resolve the domain into an IP address.
+#### 2.DNS Query:
+
+The browser sends a DNS query to resolve the domain into an IP address.
 
 #### 3.DNS Server: Provides the correct IP address for the domain.
 
