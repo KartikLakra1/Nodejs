@@ -19,3 +19,11 @@ Request made at: 1764093001130 : / with IP address ::1
 Request made at: 1764093001184 : /favicon.ico with IP address ::1
 Request made at: 1764093006988 : /kartik with IP address ::1
 Request made at: 1764093007017 : /favicon.ico with IP address ::1
+Request made at: 1764094391532 : / with IP address ::1
+Request made at: 1764094444866 : / with IP address ::1
+Request made at: 1764094475187 : /?name=kartik+lakra&class=12th with IP address ::1
+Request made at: 1764094477682 : /?name=kartik+lakra&class=12th with IP address ::1
+Request made at: 1764094591671 : /about?name=kartik+lakra&class=12th with IP address ::1
+Request made at: 1764094798195 : /about?name=kartik+lakra&class=12th with IP address ::1
+Request made at: 1764094802378 : /about?name=kartik+lakra&class=12th with IP address ::1
+Request made at: 1764094836098 : /search?search=tic+tac+toe with IP address ::1

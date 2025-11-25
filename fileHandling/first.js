@@ -1,8 +1,13 @@
 const http = require("http");
 const fs = require("fs");
+
+const url = require("url");
+
 console.log("File handling in JavaScript ");
 
 const server = http.createServer((req, res) => {
+  if (req.url == "/favicon.ico") return res.end();
+  const myUrl = url.parse(req.url, true);
   fs.appendFileSync(
     "./output.txt",
     `Request made at: ${Date.now()} : ${req.url} with IP address ${
@@ -14,13 +19,23 @@ const server = http.createServer((req, res) => {
       } else console.log("Log updated");
     }
   );
-
-  if (req.url == "/") {
-    res.write("<h1>Welcome to the Home Page</h1>");
-    res.end();
-  } else {
-    res.write("<h1>404 Page Not Found</h1>");
-    res.end();
+  console.log(myUrl);
+  switch (myUrl.pathname) {
+    case "/":
+      res.end("Home Page");
+      break;
+    case "/about":
+      const name = myUrl.query.name || "Guest";
+      const className = myUrl.query.class || "N/A";
+      res.end(`About Page\nHello, ${name} from class ${className}`);
+      break;
+    case "/search":
+      const search = myUrl.query.search || "Guest";
+      res.end("Here are your results from search " + search);
+      break;
+    default:
+      res.end("404");
+      break;
   }
 });
 
