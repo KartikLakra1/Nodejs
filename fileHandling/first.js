@@ -1,11 +1,11 @@
 const http = require("http");
 const fs = require("fs");
-
+// third party module to parse url
 const url = require("url");
 
 console.log("File handling in JavaScript ");
 
-const server = http.createServer((req, res) => {
+const myHandlerFunction = (req, res) => {
   if (req.url == "/favicon.ico") return res.end();
   const myUrl = url.parse(req.url, true);
   fs.appendFileSync(
@@ -37,7 +37,9 @@ const server = http.createServer((req, res) => {
       res.end("404");
       break;
   }
-});
+};
+
+const server = http.createServer(myHandlerFunction);
 
 server.listen(8000, () => {
   console.log(`server is listening on http://localhost:8000`);
