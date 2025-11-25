@@ -1,3 +1,21 @@
-Writing in the output file kartik
-Writing in the output file kartik
-Writing in the output file kartik
+Request made at: Tue Nov 25 2025 23:12:48 GMT+0530 (India Standard Time) with IP address ::1
+Request made at: Tue Nov 25 2025 23:13:48 GMT+0530 (India Standard Time) with IP address ::1
+Request made at: Tue Nov 25 2025 23:13:48 GMT+0530 (India Standard Time) with IP address ::1
+Request made at: Tue Nov 25 2025 23:13:55 GMT+0530 (India Standard Time) with IP address ::1
+Request made at: Tue Nov 25 2025 23:13:55 GMT+0530 (India Standard Time) with IP address ::1
+Request made at: 1764092783216 : / with IP address ::1
+Request made at: 1764092783248 : / with IP address ::1
+Request made at: 1764092787689 : / with IP address ::1
+Request made at: 1764092787776 : / with IP address ::1
+Request made at: 1764092803561 : / with IP address ::1
+Request made at: 1764092803587 : / with IP address ::1
+Request made at: 1764092810463 : / with IP address ::1
+Request made at: 1764092810494 : / with IP address ::1
+Request made at: 1764092921114 : / with IP address ::1
+Request made at: 1764092921188 : /favicon.ico with IP address ::1
+Request made at: 1764092928147 : /kartik with IP address ::1
+Request made at: 1764092928176 : /favicon.ico with IP address ::1
+Request made at: 1764093001130 : / with IP address ::1
+Request made at: 1764093001184 : /favicon.ico with IP address ::1
+Request made at: 1764093006988 : /kartik with IP address ::1
+Request made at: 1764093007017 : /favicon.ico with IP address ::1
