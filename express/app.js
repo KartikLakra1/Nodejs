@@ -46,7 +46,54 @@ app
     }
     return res.status(200).send(html);
   })
-  .put(() => {});
+  .put((req, res) => {
+    const userId = Number(req.params.id);
+    // only allowd to update firstname, lastname and gender
+    const { first_name, last_name, gender } = req.body;
+    fs.readFile("./MOCK_DATA.json", (err, data) => {
+      if (err) {
+        throw err;
+      }
+      const users = JSON.parse(data);
+    });
+
+    const user = users.find((u) => u.id == userId);
+    const updatedUser = {
+      ...user,
+      first_name,
+      last_name,
+      gender,
+    };
+
+    // from 0 to index-1
+    const beforeUser = users.slice(0, userId - 1);
+    // from index+1 to end
+    const afterUser = users.slice(userId);
+    const newUsers = [...beforeUser, updatedUser, ...afterUser];
+
+    fs.writeFile(
+      "./MOCK_DATA.json",
+      JSON.stringify(newUsers, null, 2),
+      (err) => {
+        if (err) throw err;
+        console.log("Data updated successfully");
+      }
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        message: "user not found",
+      });
+    }
+
+    return res.status(200).json({
+      message: `user with id ${userId} updated successfully`,
+      data: {
+        past: user,
+        updated: updatedUser,
+      },
+    });
+  });
 
 // add user
 app.post("/api/user", (req, res) => {
