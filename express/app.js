@@ -93,6 +93,39 @@ app
         updated: updatedUser,
       },
     });
+  })
+  .delete((req, res) => {
+    const userId = Number(req.params.id);
+
+    fs.readFile("./MOCK_DATA.json", (err, data) => {
+      if (err) {
+        throw err;
+      }
+      const users = JSON.parse(data);
+    });
+
+    const user = users.find((u) => u.id == userId);
+
+    const newUsers = users.filter((u) => u.id != userId);
+
+    // updating id after deletion
+    for (let i = 0; i < newUsers.length; i++) {
+      newUsers[i].id = i + 1;
+    }
+
+    fs.writeFile(
+      "./MOCK_DATA.json",
+      JSON.stringify(newUsers, null, 2),
+      (err) => {
+        if (err) throw err;
+        console.log("Data deleted successfully");
+      }
+    );
+
+    return res.status(200).json({
+      message: `user with id ${userId} deleted successfully`,
+      data: user,
+    });
   });
 
 // add user
