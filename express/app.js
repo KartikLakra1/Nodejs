@@ -1,8 +1,16 @@
-const express = require("express");
-const app = express();
+// core modules
 const fs = require("fs");
+
+// third party modules
+const express = require("express");
+
+// app initialization
+const app = express();
+
+// data import
 const users = require("./MOCK_DATA.json");
 
+//middlerwares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -14,8 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 //   res.send(`<h1>Hello , ${req.query.name}</h1>`);
 // });
 
-// app.use(express.urlencoded({ extended: false }));
-
+// get all users
 app.use("/users", (req, res) => {
   const html = `
     <ul>
@@ -28,6 +35,7 @@ app.use("/users", (req, res) => {
   return res.status(200).send(html);
 });
 
+// get , update and delete user by id
 app
   .route("/api/user/:id")
   .get(async (req, res) => {
