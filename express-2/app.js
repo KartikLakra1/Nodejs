@@ -2,8 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const UserRouter = require("./Router/user.router");
+const Users = require("./Models/model.users");
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // db connection
 const dbConnection = async () => {
@@ -20,8 +24,19 @@ dbConnection();
 app.use("/api/v1", UserRouter);
 
 // Default route (move this to bottom & use GET)
-app.get("/", (req, res) => {
-  res.send("Hello from Express server");
+app.get("/", async (req, res) => {
+  const allUsers = await Users.find();
+
+  const html = `
+    <h1>Hello babies of the universe</h1>
+      <ul>
+        ${allUsers.map(
+          (user, index) =>
+            `<h1 key=${index}>${user.first_name} ${user.last_name}</h1>`
+        )}
+      </ul>
+    `;
+  return res.status(200).send(html);
 });
 
 app.listen(process.env.PORT || 3001, () => {
