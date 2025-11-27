@@ -133,3 +133,10 @@ provides cryptographic gunctionalities like hashing and encryption.
 #### 8. url:
 
 parses and formats url strings.
+
+# MONGODB
+
+show dbs
+use collection_name
+db.users.find({})
+db.users.insert()
