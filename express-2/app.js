@@ -3,11 +3,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const UserRouter = require("./Router/user.router");
 const Users = require("./Models/model.users");
+const loggingMiddleware = require("./middleware/logging");
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(loggingMiddleware);
 
 // db connection
 const dbConnection = async () => {
