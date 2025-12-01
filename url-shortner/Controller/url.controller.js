@@ -43,7 +43,7 @@ const createShortUrl = async (req, res) => {
 
 const getTheShortUrl = async (req, res) => {
   try {
-    const { shortCode } = req.params;
+    const { shortCode } = req.params.shortCode;
 
     const urlExists = await Urls.findOne({ shortCode });
     if (!urlExists) {

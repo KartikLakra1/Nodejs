@@ -3,6 +3,7 @@ const express = require("express");
 const connectToDB = require("./config/db.config");
 const urlRouter = require("./Router/url.routes");
 const Urls = require("./Models/url.models");
+const path = require("path");
 
 const app = express();
 
@@ -11,11 +12,19 @@ app.use(express.urlencoded({ extended: true }));
 
 connectToDB();
 
+app.set("view engine", "ejs");
+app.set("views", path.resolve("./views"));
+
 const PORT = process.env.PORT || 8001;
 
 app.use("/api/url", urlRouter);
 
-app.use("/", async (req, res) => {
+app.get("/", async (req, res) => {
+  const allUrls = await Urls.find();
+  return res.render("home", { urls: allUrls });
+});
+
+app.get("/", async (req, res) => {
   const allUrls = await Urls.find();
   const html = `<h1 style="text-align: center; margin-top: 20%;">URL Shortener API</h1>
   <p style="text-align: center;">Use the /api/url endpoint to create short URLs.</p>
