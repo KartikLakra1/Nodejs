@@ -31,6 +31,7 @@ const createShortUrl = async (req, res) => {
     });
 
     await newUrl.save();
+    return res.status(201).redirect("/");
 
     return res.status(201).json({
       message: "Short URL created successfully",
