@@ -1,4 +1,6 @@
 const Users = require("../Models/user.models");
+const randomstring = require("randomstring");
+const { setMap } = require("../service/auth");
 
 const createUser = async (req, res) => {
   try {
@@ -12,6 +14,8 @@ const createUser = async (req, res) => {
 
     const newUser = new Users({ name, email, password });
     await newUser.save();
+
+    return res.status(201).redirect("/login");
 
     return res.status(201).json({
       message: "User created successfully",
@@ -39,6 +43,20 @@ const loginUser = async (req, res) => {
         message: "Invalid email or password",
       });
     }
+
+    // generate a token
+    const shortCode = randomstring.generate({
+      charset: ["numeric", "!"],
+      length: 15,
+    });
+
+    setMap(shortCode, user);
+    // setting cookies
+
+    res.cookie("id", shortCode);
+
+    return res.status(201).redirect("/");
+
     return res.status(200).json({
       message: "Login successful",
       data: user,

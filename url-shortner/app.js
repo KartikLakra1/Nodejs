@@ -6,11 +6,14 @@ const staticRoutes = require("./Router/staticRoutes");
 const userRouter = require("./Router/user.routes");
 const Urls = require("./Models/url.models");
 const path = require("path");
+const checkloggedin = require("./Middlerware/auth");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 connectToDB();
 
@@ -19,7 +22,7 @@ app.set("views", path.resolve("./views"));
 
 const PORT = process.env.PORT || 8001;
 
-app.use("/api/url", urlRouter);
+app.use("/api/url", checkloggedin, urlRouter);
 app.use("/api/user", userRouter);
 app.use("/", staticRoutes);
 
