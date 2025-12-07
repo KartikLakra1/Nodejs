@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const connectToDB = require("./config/db.config");
 const urlRouter = require("./Router/url.routes");
+const userRouter = require("./Router/user.routes");
 const Urls = require("./Models/url.models");
 const path = require("path");
 
@@ -18,6 +19,7 @@ app.set("views", path.resolve("./views"));
 const PORT = process.env.PORT || 8001;
 
 app.use("/api/url", urlRouter);
+app.use("/api/user", userRouter);
 
 app.get("/", async (req, res) => {
   const allUrls = await Urls.find();
