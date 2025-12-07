@@ -8,6 +8,12 @@
 <body>
     <h1 style="text-align: center; margin-top: 10%;" > Welcome to Lakra's Url shortner</h1>
     <h1 style="text-align: center; margin-top: 2%;">URL Shortener API</h1>
+    <form style="width:100%; display:flex; align-items:center; justify-content:center; margin-top:30px; margin-bottom: 30px; gap:30px;" action="/api/url" method ="POST"> 
+      <label style="font-weight: 800;">Enter the url</label>
+      <input type="text" required name="redirectUrl" />
+
+      <button>Submit</button>
+    </form>
   <p style="text-align: center;">Use the /api/url endpoint to create short URLs.</p>
   <div style="width:100%; display:flex; align-items:center; justify-content:center; margin-top:30px;">
     <table>
