@@ -4,6 +4,14 @@ const Urls = require("../Models/url.models");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
+  // getting id from req.user
+  // let allUrls;
+  // const id = req.user;
+  // if (!id) {
+  //   allUrls = await Urls.find({});
+  // } else {
+  //   allUrls = await Urls.find({ userId: id });
+  // }
   const allUrls = await Urls.find();
   return res.render("home", { urls: allUrls });
 });
