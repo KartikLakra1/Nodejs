@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const connectToDB = require("./config/db.config");
 const urlRouter = require("./Router/url.routes");
+const staticRoutes = require("./Router/staticRoutes");
 const userRouter = require("./Router/user.routes");
 const Urls = require("./Models/url.models");
 const path = require("path");
@@ -20,11 +21,12 @@ const PORT = process.env.PORT || 8001;
 
 app.use("/api/url", urlRouter);
 app.use("/api/user", userRouter);
+app.use("/", staticRoutes);
 
-app.get("/", async (req, res) => {
-  const allUrls = await Urls.find();
-  return res.render("home", { urls: allUrls });
-});
+// app.get("/", async (req, res) => {
+//   const allUrls = await Urls.find();
+//   return res.render("home", { urls: allUrls });
+// });
 
 // app.get("/", async (req, res) => {
 //   const allUrls = await Urls.find();
