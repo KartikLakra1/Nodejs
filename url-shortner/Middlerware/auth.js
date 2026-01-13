@@ -1,4 +1,4 @@
-const { getMap } = require("../service/auth");
+const { getMap, verifyToken } = require("../service/auth");
 
 const checkloggedin = async (req, res, next) => {
   const id = await req.cookies?.id;
@@ -8,7 +8,8 @@ const checkloggedin = async (req, res, next) => {
   }
 
   // get the user
-  const user = getMap(id);
+  // const user = getMap(id);
+  const user = verifyToken(id);
 
   if (!user) {
     return res.status(404).redirect("/login");

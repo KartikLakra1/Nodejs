@@ -24,7 +24,16 @@ const PORT = process.env.PORT || 8001;
 
 app.use("/api/url", checkloggedin, urlRouter);
 app.use("/api/user", userRouter);
-app.use("/", staticRoutes);
+
+app.get("/register", async (req, res) => {
+  return res.render("register");
+});
+
+app.get("/login", async (req, res) => {
+  return res.render("login");
+});
+
+app.use("/", checkloggedin, staticRoutes);
 
 // app.get("/", async (req, res) => {
 //   const allUrls = await Urls.find();

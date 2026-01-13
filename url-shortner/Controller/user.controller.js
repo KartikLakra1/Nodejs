@@ -1,6 +1,7 @@
 const Users = require("../Models/user.models");
 const randomstring = require("randomstring");
-const { setMap } = require("../service/auth");
+const { setMap, createToken } = require("../service/auth");
+const { name } = require("ejs");
 
 const createUser = async (req, res) => {
   try {
@@ -45,15 +46,24 @@ const loginUser = async (req, res) => {
     }
 
     // generate a token
-    const shortCode = randomstring.generate({
-      charset: ["numeric", "!"],
-      length: 15,
-    });
+    // const shortCode = randomstring.generate({
+    //   charset: ["numeric", "!"],
+    //   length: 15,
+    // });
 
-    setMap(shortCode, user);
+    // setMap(shortCode, user);
+
+    const token = createToken({
+      id: user._id,
+      email: user.email,
+      name: user.name,
+      password: user.password,
+    });
+    console.log("Generated Token:", token);
     // setting cookies
 
-    res.cookie("id", shortCode);
+    // res.cookie("id", shortCode);
+    res.cookie("id", token);
 
     return res.status(201).redirect("/");
 

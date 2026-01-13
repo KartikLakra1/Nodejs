@@ -9,13 +9,13 @@ const createShortUrl = async (req, res) => {
       return res.status(400).json({ message: "Redirect URL is required" });
     }
 
-    const existingUrl = await Urls.findOne({ redirectUrl });
-    if (existingUrl) {
-      return res.status(300).json({
-        message: "Short URL already exists",
-        data: existingUrl,
-      });
-    }
+    // const existingUrl = await Urls.findOne({ redirectUrl });
+    // if (existingUrl) {
+    //   return res.status(300).json({
+    //     message: "Short URL already exists",
+    //     data: existingUrl,
+    //   });
+    // }
 
     const shortCode = randomstring.generate({
       charset: ["numeric", "!"],
@@ -28,6 +28,7 @@ const createShortUrl = async (req, res) => {
       shortCode,
       redirectUrl,
       numberofClicks: 0,
+      userId: req.user?.id,
     });
 
     await newUrl.save();

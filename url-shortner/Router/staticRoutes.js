@@ -12,16 +12,25 @@ router.get("/", async (req, res) => {
   // } else {
   //   allUrls = await Urls.find({ userId: id });
   // }
-  const allUrls = await Urls.find();
-  return res.render("home", { urls: allUrls });
+  try {
+    let id = req.user?.id?.toString();
+    console.log("req.user: ", req.user);
+    let name = req.user?.name;
+    console.log("id: ", id);
+
+    const allUrls = await Urls.find({ userId: id });
+    return res.render("home", { urls: allUrls, name: name });
+  } catch (error) {
+    return res.status(500).send("Internal Server Error");
+  }
 });
 
-router.get("/register", async (req, res) => {
-  return res.render("register");
-});
+// router.get("/register", async (req, res) => {
+//   return res.render("register");
+// });
 
-router.get("/login", async (req, res) => {
-  return res.render("login");
-});
+// router.get("/login", async (req, res) => {
+//   return res.render("login");
+// });
 
 module.exports = router;
